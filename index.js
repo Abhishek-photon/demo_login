@@ -28,23 +28,29 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     if (user!=null){
         var email_id=user.email;
-        var txt = `Welcome ${email_id}`;
+        // var phno = user.text;
+        if(!ph){
+          var txt = `Welcome ${email_id}`;
+        }
+        else{
+          var txt = `Welcome `;
+        }
+        
         document.getElementById("user_para").innerHTML = txt ;
       }
     } 
     
     else {
       document.getElementById("user_div").style.display = "none";
-      if(!ph){
-        document.getElementById("otp").style.display = "block";
-        document.getElementById("login_div").style.display = "block";
-      }
-
-      else{
+      if(ph==1){
         document.getElementById("otp").style.display = "block";
         document.getElementById("login_div").style.display = "none";
         
+      }
 
+      else{
+        document.getElementById("otp").style.display = "none";
+        document.getElementById("login_div").style.display = "block";
       }
       // No user is signed in.
       
@@ -81,6 +87,8 @@ firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
       window.confirmationResult = confirmationResult;
       ph=1;
       window.alert("OTP sent");
+      document.getElementById("otp").style.display = "block";
+      document.getElementById("login_div").style.display = "none";
       // ...
     }).catch((error) => {
       // Error; SMS not sent
