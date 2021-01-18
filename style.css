@@ -20,17 +20,25 @@ input, button {
 }
 
 
-.main-div, .loggedin-div{
+.main-div, .loggedin-div, .otp-div{
     
-    width: 20%;
+    width: 25%;
     margin: 0px auto;
     margin-top: 150px;
     padding: 20px;
     display: none;
 }
 
+/* .recaptcha {
+    width: 100%;
+} */
 
-.main-div input{
+.email-div{
+    margin-bottom: 30px;
+}
+
+
+.main-div input, .otp-div input{
     display: block;
     border: 1px solid rgb(3, 49, 109);
     border-radius: 5px;
@@ -41,7 +49,7 @@ input, button {
     margin-bottom: 20px;
 }
 
-.main-div button, .loggedin-div button {
+.main-div button, .loggedin-div button, .otp-div button {
     background: rgba(111, 176, 236, 0.623);
     color:rgb(0, 0, 0);
     border: 1px solid #5d8ffc;
@@ -54,12 +62,12 @@ input, button {
     -moz-transition: 0.3s;
 }
 
-.main-div input:focus{
+.main-div input:focus, .otp-div input:focus{
     border: 2px solid rgb(255, 255, 255);
 
 }
 
-.main-div button:hover, .loggedin-div button:hover{
+.main-div button:hover, .loggedin-div button:hover, .otp-div button:hover{
     background: #ffffff;
     color: #5d8ffc;
     border: 1px solid #5d8ffc;
